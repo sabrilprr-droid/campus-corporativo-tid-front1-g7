@@ -1,0 +1,22 @@
+<body>
+  <h2>Lista de Anuncios</h2>
+  <div id="contenedor-anuncios"></div>
+
+  <script type="module">
+    import { obtenerAnuncios } from "../modules/anuncios-controller.js";
+
+    const contenedor = document.getElementById("contenedor-anuncios");
+    const anuncios = obtenerAnuncios();
+
+    for (let i = 0; i < anuncios.length; i++) {
+      const anuncio = anuncios[i];
+      contenedor.innerHTML += `
+        <div>
+          <h3>${anuncio.titulo}</h3>
+          <p>${anuncio.contenido}</p>
+          <small>${anuncio.fecha}</small>
+        </div>
+      `;
+    }
+  </script>
+</body>
