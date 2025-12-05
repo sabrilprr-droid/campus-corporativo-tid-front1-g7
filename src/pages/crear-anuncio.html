@@ -1,12 +1,13 @@
 <body>
   <h2>Crear Anuncio</h2>
-  <input id="titulo" placeholder="Título"><br>
-  <textarea id="contenido" placeholder="Contenido"></textarea><br>
+  <input id="titulo" placeholder="Título" /><br />
+  <textarea id="contenido" placeholder="Contenido"></textarea><br />
   <button id="btn-publicar">Publicar</button>
 
   <script type="module">
     import { guardarAnuncio } from "../modules/anuncios-controller.js";
-
+    import { generarId } from "../helpers/generar-id.js";
+    
     const boton = document.getElementById("btn-publicar");
 
     boton.onclick = function () {
@@ -22,7 +23,7 @@
         id: Date.now(),
         titulo: titulo,
         contenido: contenido,
-        fecha: new Date().toISOString().split("T")[0]
+        fecha: new Date().toISOString().split("T")[0],
       };
 
       guardarAnuncio(nuevoAnuncio);
